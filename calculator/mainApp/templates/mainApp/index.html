@@ -16,7 +16,8 @@
         <form action="" method="post">
             {% csrf_token %}
             <div class="calc-screen">
-                <input style="background-color: #3A4655; margin: 0px;padding: 0px;width: 100%;border:none; border-bottom: 1px solid black;" type="text"
+                <input style="background-color: #3A4655; margin: 0px;padding: 0px;width: 100%;border:none; border-bottom: 1px solid black;"
+                       type="text"
                        id="main_input" name="my_string" class="calc-operation">
                 {#                <div id="screen" class="calc-operation"></div>#}
                 <div class="calc-typed"><span class="blink-me">
@@ -144,4 +145,8 @@
     button9.on("click", function () {
         document.getElementById('main_input').value = document.getElementById('main_input').value + "9"
     });
+    button_c.on('click', function () {
+        document.getElementById(('main_input')).value = ""
+    });
+
 </script>
