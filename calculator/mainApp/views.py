@@ -111,7 +111,10 @@ def computer(inputs):
         if thelen == len(main_inp):
             break
     print("after computer : " + str(main_inp))
-    return main_inp[-1]
+    try:
+        return main_inp[-1]
+    except:
+        return ""
 
 
 def get_result(string=None):
@@ -120,8 +123,22 @@ def get_result(string=None):
 
 def main(request):
     context = {}
-    if request.method == 'POST':
-        context = {'result': get_result(request.POST['my_string'])}
-    else:
-        context = {'result': None}
+    try:
+        if request.method == 'POST':
+            try:
+                num = int(get_result(request.POST['my_string']))
+                context = {'result': get_result(request.POST['my_string']), 'question': request.POST['my_string'],
+                           'error': False}
+            except:
+                context = {'result': "", 'question': 'Error!', 'error': True}
+        else:
+            if request.method == 'POST':
+                context = {'result': "", 'question': request.POST['my_string'], 'error': False}
+            else:
+                context = {'result': "", 'question': '', 'error': False}
+    except:
+        print("4")
+        context = {'result': "", 'question': 'Error!', 'error': True}
+
     return render(request, 'mainApp/index.html', context)
+1
