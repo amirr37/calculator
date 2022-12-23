@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodePen - PureCalc- Simple Calculator Using HTML and CSS</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <div class="calc-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="calc-screen">
+                <input style="background-color: #3A4655; margin: 0px;padding: 0px;width: 100%;border:none; border-bottom: 1px solid black;" type="text"
+                       id="main_input" name="my_string" class="calc-operation">
+                {#                <div id="screen" class="calc-operation"></div>#}
+                <div class="calc-typed"><span class="blink-me">
+                    {% if result %}
+                        {{ result }}_
+                    {% endif %}</span></div>
+            </div>
+            <div class="calc-button-row">
+
+                <div id="button_c" class="button c">C</div>
+                <div id="button_parantez_start" class="button l">(</div>
+                <div id="button_parantez_finish" class="button l">)</div>
+                <div id="button_taghsim" class="button l">/</div>
+
+            </div>
+            <div class="calc-button-row">
+                <div id="button7" class="button">7</div>
+                <div id="button8" class="button">8</div>
+                <div id="button9" class="button">9</div>
+
+                <div id="button_zarb" class="button l">x</div>
+            </div>
+            <div class="calc-button-row">
+                <div id="button4" class="button">4</div>
+                <div id="button5" class="button">5</div>
+                <div id="button6" class="button">6</div>
+                <div id="button_tafrigh" class="button l">−</div>
+            </div>
+            <div class="calc-button-row">
+                <div id="button1" class="button">1</div>
+                <div id="button2" class="button">2</div>
+                <div id="button3" class="button">3</div>
+                <div id="button_jam" class="button l">+</div>
+            </div>
+            <div class="calc-button-row">
+                <div class="button">hlp</div>
+                <div id="button0" class="button">0</div>
+                <div id="button_tavan" class="button l">^</div>
+                <div class="button l">
+                    <button style="background-color: #3C4857; width: 190%;" type="submit">=
+                    </button>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="/static/script.js"></script>
+</body>
+</html>
+
+
+<script>
+    const screen = $("#screen");
+    const button0 = $("#button0");
+    const button1 = $("#button1");
+    const button2 = $("#button2");
+    const button3 = $("#button3");
+    const button4 = $("#button4");
+    const button5 = $("#button5");
+    const button6 = $("#button6");
+    const button7 = $("#button7");
+    const button8 = $("#button8");
+    const button9 = $("#button9");
+    const button_taghsim = $("#button_taghsim");
+    const button_zarb = $("#button_zarb");
+    const button_jam = $("#button_jam");
+    const button_tafrigh = $("#button_tafrigh");
+    const button_tavan = $("#button_tavan");
+    const button_parantez_start = $("#button_parantez_start");
+    const button_parantez_finish = $("#button_parantez_finish");
+    const button_c = $("#button_c");
+
+    button_parantez_start.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "("
+    });
+    button_parantez_finish.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + ")"
+    });
+    button_taghsim.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "/"
+    });
+    button_zarb.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "*"
+    });
+    button_tavan.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "^"
+    });
+    button_tafrigh.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "-"
+    });
+    button_jam.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "+"
+    });
+    button0.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "0"
+    });
+    button1.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "1"
+    });
+    button2.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "2"
+    });
+    button3.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "3"
+    });
+    button4.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "4"
+    });
+    button5.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "5"
+    });
+    button6.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "6"
+    });
+    button7.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "7"
+    });
+    button8.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "8"
+    });
+    button9.on("click", function () {
+        document.getElementById('main_input').value = document.getElementById('main_input').value + "9"
+    });
+</script>
